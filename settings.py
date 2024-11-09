@@ -2,6 +2,9 @@ from pydantic import BaseSettings
 
 class Settings(BaseSettings):
     database_url: str = "sqlite:///./database.sqlite3"
+    jwt_secret: str
+    jwt_algorithm: str = "HS256"
+    jwt_expiration = 3600
 
 settings = Settings(
     _env_file='.env',
